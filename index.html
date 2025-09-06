@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nabeel Mustafa — QA Tester</title>
+  <meta name="description" content="Single‑file portfolio for Nabeel Mustafa (QA Tester). Includes phone, LinkedIn, projects, and CV download." />
+  <meta name="theme-color" content="#0ea5e9">
+  <style>
+    :root{
+      --bg:#0b1220;          /* page bg */
+      --panel:#0f172a;       /* card bg */
+      --muted:#94a3b8;       /* secondary text */
+      --text:#e2e8f0;        /* main text */
+      --brand:#0ea5e9;       /* accent */
+      --brand-2:#22d3ee;     /* accent 2 */
+      --ok:#10b981;          /* success */
+      --warn:#f59e0b;        /* warn */
+      --danger:#ef4444;      /* danger */
+      --ring: 0 0 0 2px rgba(34,211,238,.35), 0 0 0 6px rgba(14,165,233,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(14,165,233,.15), transparent 60%),
+                  radial-gradient(800px 600px at -10% 10%, rgba(34,211,238,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{ color: var(--brand-2); text-decoration: none }
+    a:hover{ text-decoration: underline }
+
+    .wrap{ max-width:1100px; margin:0 auto; padding:28px 18px 80px }
+
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11,18,32,.75), rgba(11,18,32,.45));
+      border-bottom: 1px solid rgba(148,163,184,.12);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 18px }
+    .brand{ display:flex; align-items:center; gap:12px }
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background: conic-gradient(from 220deg, var(--brand), var(--brand-2));
+      box-shadow:0 8px 30px rgba(34,211,238,.25), inset 0 0 20px rgba(14,165,233,.35);
+    }
+    .brand h1{ font-size:18px; margin:0 }
+    .brand small{ color:var(--muted); display:block; margin-top:-2px }
+
+    .btns{ display:flex; flex-wrap:wrap; gap:10px }
+    .btn{
+      display:inline-flex; align-items:center; gap:.6rem; 
+      padding:10px 14px; border-radius:14px; 
+      background: linear-gradient(180deg, rgba(14,165,233,.25), rgba(34,211,238,.22));
+      border:1px solid rgba(148,163,184,.18);
+      color:var(--text); text-decoration:none; font-weight:600;
+      box-shadow: 0 6px 20px rgba(34,211,238,.18);
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      will-change: transform;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(34,211,238,.28); text-decoration:none }
+    .btn:focus{ outline:none; box-shadow: var(--ring) }
+    .btn.phone{ background:linear-gradient(180deg, rgba(16,185,129,.2), rgba(34,211,238,.18)); }
+    .btn.cv{ background:linear-gradient(180deg, rgba(14,165,233,.28), rgba(14,165,233,.18)); }
+
+    .hero{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; padding:42px 18px 16px }
+    .hero .card{ padding:22px; border-radius:20px; background:linear-gradient(180deg, rgba(15,23,42,.82), rgba(15,23,42,.66)); border:1px solid rgba(148,163,184,.16) }
+    .headline{ font-size:34px; line-height:1.15; margin:0 0 8px; letter-spacing:.3px }
+    .subtitle{ color:var(--muted); margin:0 0 18px }
+    .pill{ display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px; margin-right:6px; background:rgba(34,211,238,.14); border:1px solid rgba(148,163,184,.16) }
+
+    section{ margin-top:34px }
+    .section-title{ font-size:20px; margin:0 0 12px; letter-spacing:.3px }
+
+    .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px }
+    .card{ background:var(--panel); border:1px solid rgba(148,163,184,.16); border-radius:18px; padding:18px }
+    .card h3{ margin:0 0 6px; font-size:18px }
+    .card p{ margin:0 0 14px; color:var(--muted) }
+
+    .skills{ display:flex; flex-wrap:wrap; gap:10px }
+    .chip{ padding:6px 10px; border-radius:999px; background:rgba(148,163,184,.12); border:1px solid rgba(148,163,184,.16); color:var(--text); font-weight:600; font-size:13px }
+
+    .contact{ display:grid; grid-template-columns: repeat(2,1fr); gap:18px }
+    .contact .item{ padding:14px 16px; border:1px dashed rgba(148,163,184,.25); border-radius:14px; background:linear-gradient(180deg, rgba(15,23,42,.7), rgba(15,23,42,.5)) }
+    .contact .item b{ display:block; margin-bottom:6px }
+
+    footer{ margin-top:36px; padding:20px 18px; color:var(--muted); text-align:center; border-top:1px solid rgba(148,163,184,.12) }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr }
+      .grid{ grid-template-columns: 1fr 1fr }
+    }
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr }
+      .btns{ gap:8px }
+      .headline{ font-size:28px }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Top Navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Nabeel Mustafa</h1>
+          <small>QA Tester • Manual & Automation</small>
+        </div>
+      </div>
+      <div class="btns">
+        <!-- PHONE: clickable on mobile/desktop apps -->
+        <a class="btn phone" href="tel:+972543695488" aria-label="Call Nabeel">
+          📞 <span>Call: 054‑369‑5488</span>
+        </a>
+        <!-- WHATSAPP with prefilled text (Israel code 972, no leading 0) -->
+        <a class="btn" href="https://wa.me/972543695488?text=Hello%20Nabeel%20%F0%9F%91%8B" target="_blank" rel="noopener" aria-label="WhatsApp Nabeel">
+          💬 <span>WhatsApp</span>
+        </a>
+        <!-- LINKEDIN -->
+        <a class="btn" href="https://www.linkedin.com/in/nabeel-asmr-627652250/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+          🔗 <span>LinkedIn</span>
+        </a>
+        <!-- WEBSITE / GITHUB PAGES (provided link) -->
+        <a class="btn" href="https://nabeelmuu421-stack.github.io/nabeelmuu421.github.io/" target="_blank" rel="noopener" aria-label="My Website">
+          🌐 <span>My Website</span>
+        </a>
+        <!-- CV DOWNLOAD: put a file named cv.pdf in the same repo root -->
+        <a class="btn cv" href="cv.pdf" download aria-label="Download CV PDF">
+          ⬇️ <span>Download CV</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="about">
+      <div class="card">
+        <span class="pill">Open to Work</span>
+        <h2 class="headline">Quality Assurance Tester based in Jerusalem</h2>
+        <p class="subtitle">Manual & Automated testing • Selenium (Python/Java), PyTest, Postman, SQL, TestRail, JIRA. I build reliable test plans, data‑driven test cases, and clean automation that catches real bugs.</p>
+        <div class="skills">
+          <span class="chip">Python • Selenium • PyTest</span>
+          <span class="chip">Java • Selenium</span>
+          <span class="chip">Postman • API</span>
+          <span class="chip">JIRA • TestRail</span>
+          <span class="chip">SQL</span>
+          <span class="chip">GitHub • CI basics</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Quick Facts</h3>
+        <ul style="margin:0; padding-left:18px; color:var(--muted)">
+          <li>Phone: <a href="tel:+972543695488">+972 54‑369‑5488</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/nabeel-asmr-627652250/" target="_blank" rel="noopener">/nabeel-asmr-627652250</a></li>
+          <li>Location: Jerusalem, Israel</li>
+          <li>Email: <a href="mailto:nabeelmuu421@gmail.com">nabeelmuu421@gmail.com</a></li>
+        </ul>
+        <p style="margin-top:14px; color:var(--muted)">Tip: Replace any text by editing this single HTML file. No external assets needed.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Highlighted Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>QA Online Academy — Smoke Tests</h3>
+          <p>Automated smoke suite for home page, registration, and booking flow. Uses Selenium (Python) + PyTest, with explicit waits and screenshot capture.</p>
+          <a href="#" aria-label="Project link">View repo / demo</a>
+        </article>
+        <article class="card">
+          <h3>ERP System — Manual Test Pack</h3>
+          <p>Comprehensive STP/STD/STR with 120+ cases linked to requirements (IDs), severity/priority, and reproducible steps with attachments.</p>
+          <a href="#" aria-label="Project link">Open documents</a>
+        </article>
+        <article class="card">
+          <h3>Student Management — API Tests</h3>
+          <p>Postman collections for CRUD endpoints with pre‑request scripts, environments, and Newman HTML reports.</p>
+          <a href="#" aria-label="Project link">View collection</a>
+        </article>
+      </div>
+      <!--
+        HOW TO ADD YOUR PROJECTS (single‑file):
+        Duplicate an <article class="card"> block, change the title, description, and link.
+        Keep everything inside this file to stay "one file only".
+      -->
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact">
+        <div class="item">
+          <b>Phone</b>
+          <a href="tel:+972543695488">+972 54‑369‑5488</a>
+        </div>
+        <div class="item">
+          <b>WhatsApp</b>
+          <a href="https://wa.me/972543695488?text=Hello%20Nabeel">Message me</a>
+        </div>
+        <div class="item">
+          <b>LinkedIn</b>
+          <a href="https://www.linkedin.com/in/nabeel-asmr-627652250/" target="_blank" rel="noopener">Profile</a>
+        </div>
+        <div class="item">
+          <b>Website</b>
+          <a href="https://nabeelmuu421-stack.github.io/nabeelmuu421.github.io/" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2 class="section-title">CV / Resume</h2>
+      <div class="card">
+        <p style="margin:0 0 12px">Make your CV downloadable directly from this page:</p>
+        <ol style="margin:0 0 12px; padding-left:18px; color:var(--muted)">
+          <li>Save your resume file as <code>cv.pdf</code>.</li>
+          <li>Upload <code>cv.pdf</code> to the same GitHub repository and folder as this <code>index.html</code>.</li>
+          <li>The <b>Download CV</b> button on top will automatically work.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Nabeel Mustafa • Built with a single HTML file ✨
+  </footer>
+
+  <script>
+    // Update year automatically
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!--
+    ========= QUICK DEPLOY STEPS (GitHub Pages) =========
+    1) Name this file exactly: index.html
+    2) Put it in the root of your repository (not inside a folder).
+    3) Commit & push. If you don't see changes, hard refresh the page (Ctrl/Cmd + Shift + R).
+    4) To enable the CV button, upload a file named cv.pdf next to index.html.
+
+    You can keep everything in this one file to make edits easy.
+  -->
+</body>
+</html>
